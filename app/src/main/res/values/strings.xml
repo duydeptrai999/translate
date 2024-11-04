@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MLkit</string>
+
+    <string-array name="language_array">
+        <item>English</item>
+        <item>Vietnamese</item>
+        <item>French</item>
+        <item>Spanish</item>
+        <item>Japanese</item>
+        <!-- Add more languages as needed -->
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
