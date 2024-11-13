@@ -92,6 +92,11 @@ class MainFragment : Fragment() {
             (activity as MainActivity).supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, CameraFragment()).addToBackStack(null).commit()
         }
+        binding.btnDetailVocabulary.setOnClickListener{
+
+            (activity as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, DetailVocabularyFragment()).addToBackStack(null).commit()
+        }
 
         binding.inputText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -204,7 +209,6 @@ class MainFragment : Fragment() {
         }
     }
     private fun setTextToSpeechLanguage(languageCode: String, textToSpeech: TextToSpeech) {
-        // Kiểm tra và thiết lập ngôn ngữ
         val locale = when (languageCode) {
             "English" -> Locale.US
             "Vietnamese" -> Locale("vi", "VN")
@@ -266,32 +270,38 @@ class MainFragment : Fragment() {
 
 
     private fun translateText(sourceLang: String, targetLang: String, text: String) {
-        val options =
-            TranslatorOptions.Builder().setSourceLanguage(sourceLang).setTargetLanguage(targetLang)
-                .build()
+        val options = TranslatorOptions.Builder()
+            .setSourceLanguage(sourceLang)
+            .setTargetLanguage(targetLang)
+            .build()
 
         // Hủy translator cũ để tiết kiệm tài nguyên
         currentTranslator?.close()
 
         val translator: Translator = Translation.getClient(options)
 
+        // Tách văn bản input thành các đoạn theo dòng xuống
+        val inputTextLines = text.split("\n")
+
         // Tải ngôn ngữ nếu cần
         translator.downloadModelIfNeeded().addOnSuccessListener {
-                val text = binding.inputText.text.toString()
+            // Dịch từng dòng riêng lẻ
+            val translatedTextLines = mutableListOf<String>()
+            inputTextLines.forEach { line ->
+                translator.translate(line).addOnSuccessListener { translatedLine ->
+                    translatedTextLines.add(translatedLine)
 
-                // Dịch văn bản
-                translator.translate(text).addOnSuccessListener { translatedText ->
-                        binding.outputText.text = translatedText
-                    }.addOnFailureListener { e ->
-                        Toast.makeText(
-                            requireContext(), "Lỗi dịch: ${e.message}", Toast.LENGTH_SHORT
-                        ).show()
+                    // Nếu tất cả các dòng đã được dịch, hợp nhất lại và hiển thị
+                    if (translatedTextLines.size == inputTextLines.size) {
+                        binding.outputText.text = translatedTextLines.joinToString("\n")
                     }
-            }.addOnFailureListener { e ->
-                Toast.makeText(
-                    requireContext(), "Lỗi tải ngôn ngữ: ${e.message}", Toast.LENGTH_SHORT
-                ).show()
+                }.addOnFailureListener { e ->
+                    Toast.makeText(requireContext(), "Lỗi dịch: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
             }
+        }.addOnFailureListener { e ->
+            Toast.makeText(requireContext(), "Lỗi tải ngôn ngữ: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
     }
 
 

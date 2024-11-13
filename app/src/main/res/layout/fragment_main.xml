@@ -110,6 +110,15 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="16dp"
         android:layout_marginBottom="10dp"/>
+    <ImageView
+        android:id="@+id/btnDetailVocabulary"
+        android:layout_width="44dp"
+        android:layout_height="34dp"
+        android:src="@drawable/baseline_view_compact"
+        app:layout_constraintBottom_toTopOf="@+id/layoutSwapLangue"
+        app:layout_constraintStart_toEndOf="@+id/btnMic"
+        tools:layout_editor_absoluteX="16dp"
+        android:layout_marginBottom="10dp"/>
     <LinearLayout
         android:id="@+id/layoutSwapLangue"
         android:layout_width="0dp"
