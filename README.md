@@ -15,7 +15,7 @@
 + ở cái view 1 dịch có lẽ lên để ngang như gg diịch máy tinh nhìn ngang cảm giác dễ hơn nhìn dọc(khả thi nếu )
 
 -app note
-+? có lẽ nên thêm cả cái phát âm api và cả sound 
++ ? có lẽ nên thêm cả cái phát âm api và cả sound 
 + cải thiện đoaạn zen câu hỏi chưa tối ưu
 + lúc lướt về màn hinh cũ sau khi trl câu hỏi nó sẽ bi lướt về cái câu hỏi , ko cho nó lướt về sau khi trl song câu hỏi
 + cập nhat cái icon view nhiìn xau
