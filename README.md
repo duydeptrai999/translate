@@ -1,9 +1,12 @@
 -app dịch
 
-+thêm copy chữ đã dịch được khi có ở trên ảnh đã quét dịch được
-+có thể add từ mới vào cái note nếu muốn (có thể add thêm cả cái desciption nếu mà có thể có cái chi tiết bản dịch )
-+lưu cái đang dịch vào share preferen thêm 1 nút xóa toàn bộ bản đang dịch vào góc bên phải
-+copy chữ từ ảnh sau khi dịch hay sau khi nhận diện
++ thêm copy chữ đã dịch được khi có ở trên ảnh đã quét dịch được
+
++ có thể add từ mới vào cái note nếu muốn (có thể add thêm cả cái desciption nếu mà có thể có cái chi tiết bản dịch )
+
++ lưu cái đang dịch vào share preferen thêm 1 nút xóa toàn bộ bản đang dịch vào góc bên phải
+
++ copy chữ từ ảnh sau khi dịch hay sau khi nhận diện
 + copy được thông tin  ở trên view lấy từ chi tiết lấy ra từ api
 + cảm giác cần phải cải thiện cái view
 + ở cái api có thể dịch ra các ngôn ngữ khsac ko chỉ dịch sang mỗi tiếng viêệt
