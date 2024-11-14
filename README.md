@@ -21,3 +21,5 @@
 + hiện thị những đáp án trả lời sai (có lẽ nên hiển thị cả những đáp án đúng của nó)
 + lúc đang làm quiz nếu mà lần trước làm song rồi nếu đã bắt đầu quiz mới rồi swip về màn cũ thì sẽ bị lỗi giữ argument của lần trước hiển thị dialog
 + làm thêm 1 từ tiếng việt rồi hiển thị đáp án từ nào trong tiếng anh có nghĩa này
++ lấy cách phát âm từ api khi quiz vừa đến từ đấy thì sẽ tự phát âm từ đấy lên , hoặc có icon cái loa ngay bên cạnh từ đấy 
++ 
